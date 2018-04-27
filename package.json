@@ -1,0 +1,19 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "node.js application using Twilio to respond to provide an SMS based ToDo list.  This web server in this example uses port 1337 which can be changed in the code `http.createServer(app).listen(`**1337**`, () => {`",
+  "main": "listObj.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "http": "^0.0.0",
+    "twilio": "^3.15.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ben datlen",
+  "license": "ISC"
+}
