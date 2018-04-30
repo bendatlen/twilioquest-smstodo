@@ -11,20 +11,13 @@ var list = {
       var nextNum = this._list.length + 1;
       this._list.push(nextNum + '. ' + newItem);
     },
-  
-    // return a list of items in the list
-    listItems: function() {
-      for(i = 0; i < this._list.length; i++) {
-        var items = this._list[i];
-        return items;
-      }
-    },
-  
+   
     // Delete an item from the list based on the item's number in the list and also return the item that was deleted with the number prefix removed
     deleteItem: function(itemNum) {
       var i = itemNum - 1;
       var deletedItem = this._list[i];
-      deletedItem = deletedItem.slice(3,);
+      var dotIndex = deletedItem.indexOf(".");
+      deletedItem = deletedItem.slice(dotIndex + 1,);
       this._list.splice(i,1);
       return deletedItem;
     },
@@ -32,7 +25,8 @@ var list = {
     // Re-number the items in the list.  This is called after an item is deleted from the list
     reorderItems: function() {
       for(i = 0; i < this._list.length; i++) {
-        var item = this._list[i].slice(3,);
+        var dotIndex = this._list[i].indexOf(".");
+        var item = this._list[i].slice(dotIndex + 1,);
         item = i + 1 + '. ' + item;
         this._list[i] = item;
       }
