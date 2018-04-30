@@ -38,7 +38,7 @@ app.post('/sms', (req, res) => {
 	    		twiml.message({
 					action: URL,
 					method: 'POST'
-				}, "Your list contains: " + itemList);
+				}, 'Your list contains: ' + itemList);
 	    	}
 		} else {
 			twiml.message({
@@ -59,11 +59,11 @@ app.post('/sms', (req, res) => {
 		var deletedItem = list.deleteItem(itemNum);
 
 		if (itemList.length == 0) {
-			twiml.message(deletedItem + "deleted. Your list is now empty");
+			twiml.message(deletedItem + 'deleted. Your list is now empty');
 		} else if (itemList.length > 0) {
 			// After an item is deleted the list is renumbered to maintain consecutive num sequence
 			list.reorderItems();
-			twiml.message(deletedItem + " deleted. Your updated list is: " + itemList);
+			twiml.message(deletedItem + 'deleted. Your updated list is: ' + itemList);
 		}
 	} else {
 		twiml.message('2nd catch all...No Body param match, Twilio sends this in the request to your server.');
@@ -84,6 +84,7 @@ app.post ('/status', (req, res) => {
 
 	console.log('SID: ' + messageSid + ', Status: ' + messageStatus + ', X-Twilio-Signature: ' + xTwilioSig);
 
+	res.writeHead(200, {'Content-Type': 'text/xml'});
 	res.end();
 });
 

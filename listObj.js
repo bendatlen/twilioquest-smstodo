@@ -9,7 +9,7 @@ var list = {
     // Adds an item to the list and prefixes it with a number.  Items are are numbered in the order they are addedd to the list
     addItem: function(newItem) {
       var nextNum = this._list.length + 1;
-      this._list.push(nextNum + ". " + newItem + " ");
+      this._list.push(nextNum + '. ' + newItem);
     },
   
     // return a list of items in the list
@@ -33,7 +33,7 @@ var list = {
     reorderItems: function() {
       for(i = 0; i < this._list.length; i++) {
         var item = this._list[i].slice(3,);
-        item = i + 1 + ". " + item;
+        item = i + 1 + '. ' + item;
         this._list[i] = item;
       }
     }
